@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 var exec = require("child_process").exec;
 const os = require("os");
 const { createProxyMiddleware } = require("http-proxy-middleware");
@@ -64,7 +64,7 @@ app.get("/test", (req, res) => {
 app.use(
   "/api",
   createProxyMiddleware({
-    target: "http://127.0.0.1:3001/", // 需要跨域处理的请求地址
+    target: "http://worried-hospital-gown-bass.cyclic.app:3001/", // 需要跨域处理的请求地址
     changeOrigin: false, // 默认false，是否需要改变原始主机头为目标URL
     ws: true, // 是否代理websockets
     pathRewrite: {
